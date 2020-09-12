@@ -13,7 +13,7 @@
   </audio>
   <br>
       {% for audio in laudios %}
-      <button class="btn btn-outline-info btn-block" type="button" onclick=fplay('{{audio["username"]}}','{{audio["filename"]}}');>{{audio["audiotitle"]}}</button>
+      <button class="btn btn-outline-primary btn-block" type="button" onclick=fplay('{{audio["username"]}}','{{audio["filename"]}}');>{{audio["audiotitle"]}}</button>
       <!-- <source src="{{ url_for('static', filename=audio["filename"]) }}" type="audio/wav"> -->
       {% endfor %}
 </div>

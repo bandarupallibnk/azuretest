@@ -6,9 +6,9 @@ from kajaas.mongo_conn import clsmongo
 from kajaas.clsjwt import clsjwtprocess
 import psycopg2
 import ast, re
-from edate import cl_date
+from kajaas.edate import cl_date
 import hashlib
-from kaja import app
+from kajaas import app
 import os,jwt
 import jwt,datetime
 
