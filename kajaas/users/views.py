@@ -5,7 +5,7 @@ from kajaas.users.forms import clsupload
 from kajaas.mongo_conn import clsmongo
 from kajaas.clsjwt import clsjwtprocess
 import jwt,datetime,time
-from edate import cl_date
+from kajaas.edate import cl_date
 from datetime import timedelta
 from celery.task.control import revoke
 from flask_uploads import configure_uploads,IMAGES,AUDIO,UploadSet
