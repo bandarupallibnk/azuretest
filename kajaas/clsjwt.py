@@ -1,7 +1,7 @@
 from flask import Flask,jsonify,request,session,render_template
 import jwt,datetime
 from functools import wraps
-from kaja import app
+from kajaas import app
 
 class clsjwtprocess():
 
