@@ -1,0 +1,64 @@
+{% extends 'ubase.html' %}
+
+{% block content%}
+<h4>Welcome {{username}}!</h4>
+
+
+<div id="requeststatus" class="alert" ></div>
+
+<div class="container">
+  <h4 id="title" ></h4>
+  <audio id="audioPlayer" preload="true" controls style="width:100%">
+              <!-- <source src="/static/nanda_14.mp3"> -->
+  </audio>
+  <br>
+      {% for audio in laudios %}
+      <button class="btn btn-outline-info btn-block" type="button" onclick=fplay('{{audio["username"]}}','{{audio["filename"]}}');>{{audio["audiotitle"]}}</button>
+      <!-- <source src="{{ url_for('static', filename=audio["filename"]) }}" type="audio/wav"> -->
+      {% endfor %}
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript">
+
+  function fplay(username,filename){
+    var vactiveaudio = document.getElementById("audioPlayer");
+    var vtitle = document.getElementById("title");
+    var uname = username;
+    var fname = filename;
+    var entry = {
+      uname: uname,
+      fname : fname
+    };
+      console.log('Ajax')
+      path = "{{url_for('users.fplayaudio',token = session['token'])}}"
+      $.ajax({
+          type: 'POST',
+          url: path,
+          contentType: 'application/json',
+          data: JSON.stringify(entry),
+          success: function(data, status, request) {
+              audiotitle = request.getResponseHeader('atitle');
+              fname = request.getResponseHeader('fname');
+              console.log(audiotitle)
+              console.log("static/"+fname)
+              var floc = "/static/"+fname;
+              console.log(vactiveaudio)
+              console.log(vtitle)
+              vtitle.innerHTML = audiotitle
+              vactiveaudio.src =  floc
+              vactiveaudio.type="audio/wav"
+              vactiveaudio.play()
+          }
+      });
+
+
+  console.log(entry);
+  }
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" >
+  <h2>Welcome to signup page!</h2>
+  <ul>
+    {% for line in lcheck %}
+    <li>{{line}}</li>
+    {% endfor %}
+  </ul>
+  <div class="jumbotron">
+    <form class=""  method="POST">
+      {{form.hidden_tag()}}
+      <div class="form-group">
+            {{form.firstname.label}} {{form.firstname(class="form-control form-control-lg")}}
+        </div>
+        <div class="form-group">
+              {{form.email.label}} {{form.email(class="form-control form-control-lg")}}
+          </div>
+          <div class="form-group">
+                {{form.username.label}} {{form.username(class="form-control form-control-lg")}}
+          </div>
+          <div class="form-group">
+                  {{form.password.label}} {{form.password(class="form-control form-control-lg")}}
+          </div>
+          <div class="form-group">
+                  {{form.confirmpassword.label}} {{form.confirmpassword(class="form-control form-control-lg")}}
+          </div>
+          <div class="form-group">
+                  {{form.ageo18.label}} {{form.ageo18(class="form-control form-control-lg")}}
+          </div>
+          <div class="form-group">
+                  {{form.submit}}
+          </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

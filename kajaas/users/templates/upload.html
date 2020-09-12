@@ -1,0 +1,22 @@
+{% extends 'ubase.html' %}
+
+{% block content %}
+
+<div class="container">
+  <h3>Upload</h3>
+        <br><br>
+  <form class="" id="form" method="post" width="100%" enctype="multipart/form-data">
+     {{ form.csrf_token }}
+      {{form.audio.label}}
+      {{form.csrf_token}}
+      {{form.audio}}
+      <div class="form-group">
+          <br><br>
+        {{form.aboutaudio.label}}
+      <textarea class="form-control" rows="3" name="aboutaudio"></textarea>(limit of 20 characters)
+      </div>
+      {{form.upload}}
+  </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome to kaja!</h1>
+    <p>Ever felt like you can't share all your ideas and thoughts with
+       in fear of being judged? You are in the right place.
+      Signup now to find someone to talk to.
+    </p>
+    <p></p>
+  </div>
+  </div>
+<div class="container">
+<form class="" id="form1" method="POST">
+  {{form.hidden_tag()}}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" style="text-align:center">
+        <h3>New User</h3>
+          <br>
+          {{form.signup}}
+      </div>
+      <div class="col-sm" style="text-align:center">
+        <h3>Existing User</h3>
+          <br>
+          {{form.login}}
+      </div>
+    </div>
+  </div>
+
+
+</form>
+</div>
+
+
+{% endblock %}

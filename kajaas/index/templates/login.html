@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="text-align:center">
+  <h1>Welcome to login page! </h1>
+  {% if lcheck %}
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      {% for line in lcheck %}
+      <li>{{line}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  <form  id="objlogin" method="POST">
+    {{form.hidden_tag()}}
+    <div class="form-group">
+          {{form.username.label}} {{form.username(class="form-control form-control-lg")}}
+      </div>
+      <div class="form-group">
+            {{form.password.label}} {{form.password(class="form-control form-control-lg")}}
+        </div>
+      <br>
+      <div class="row">
+        <div class="col-sm" style="text-align:center">
+            {{form.login}} <br>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
